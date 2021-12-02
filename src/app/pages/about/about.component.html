@@ -1,0 +1,45 @@
+
+  <h1>Del Controlador a la Vista</h1>
+    <div>
+        Nombre: {{miAutor.nombre}} <br>
+        Apellido: {{miAutor.apellido}} <br>
+        Edad: {{ miAutor.edad}}<br>
+        Nombre Completo: {{miAutor.nombreCompleto()}}<br>
+        <hr>
+        En un input <input type="text" [value]="miAutor.nombre" /> <br>
+        De otra manera <input type="text" value="{{miAutor.nombre}}"/> <br>
+    </div>
+    <hr>
+    <div class = "{{miClaseCSS}}"> Clase dinamica</div>
+    <div [class] = "miClaseCSS"> Otra forma de asignar mi clase dinamica</div>
+    <hr>
+    <div [hidden] = "isHidden"> Elemento aparece y desaparece</div>
+    <hr>
+    <div>
+        <p style.color = {{miColor}}>Parrafo con color dinamico</p>
+    </div>
+    <hr>
+        <div> Nombre Completo: {{miAutor.nombre}} {{miAutor.apellido}}</div>
+        <div> Nombre Completo: {{miAutor.nombre + " " + miAutor.apellido}}</div>
+        <div> Nombre Completo: {{nombreCompleto()}}</div>  
+        <div> Nombre Completo: {{miAutor.nombreCompleto()}}</div>
+    <hr>
+
+   <h1>De la Vista al Controlador</h1>
+    
+    <div>
+        <input type="text" #input1>
+        <button (click)=enviar2(input1.value)>Cambiar el Nombre</button><br>
+        <input type="text" #input2>
+        <button on-click=enviar(input2)>Otra Manera de Cambiar el Nombre</button>   
+    </div>
+
+
+   <hr>
+    <h1>Two Way Binding</h1>
+    <div>
+        <input type="text" [(ngModel)]="miAutor.nombre"/> {{miAutor.nombre}}
+        <input type="text" [(ngModel)]="miAutor.apellido"/> {{miAutor.apellido}}
+
+    </div>  
+
